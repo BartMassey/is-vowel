@@ -47,6 +47,7 @@ pub trait IsRomanceVowel: private::Sealed {
     ///     for c in "aAáÁÅ".chars() {
     ///         assert!(c.is_romance_vowel());
     ///     }
+    #[allow(clippy::wrong_self_convention)]
     fn is_romance_vowel(self) -> bool;
 
     /// Behave as [`is_romance_vowel`][is_romance_vowel], but also include the characters in
@@ -60,6 +61,7 @@ pub trait IsRomanceVowel: private::Sealed {
     ///     for c in "yW".chars() {
     ///         assert!(c.is_romance_vowel_including(&extra_vowels));
     ///     }
+    #[allow(clippy::wrong_self_convention)]
     fn is_romance_vowel_including(self, extra_vowels: &HashSet<char>) -> bool;
 }
 

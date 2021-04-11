@@ -1,3 +1,5 @@
+#![doc(html_root_url = "https://docs.rs/is-vowel/0.1.0")]
+
 //! Test for vowels in [Romance languages](https://en.wikipedia.org/wiki/Romance_languages).
 //!
 //! Deciding whether some grapheme is a "vowel" (represents a "vowel sound") is language
@@ -25,7 +27,7 @@ use std::collections::HashSet;
 use once_cell::sync::Lazy;
 use unicode_normalization::UnicodeNormalization;
 
-pub trait IsRomanceVowel {
+pub trait IsRomanceVowel: private::Sealed {
     /// Return `true` iff `self` appears to be a "vowel" in a Romance language.
     ///
     /// This function first decomposes its argument according to [Unicode Normalization Form
@@ -88,4 +90,12 @@ impl IsRomanceVowel for char {
         let vowels: HashSet<char> = BASE_VOWELS.union(extra_vowels).cloned().collect();
         is_romance_vowel_with(self, &vowels)
     }
+}
+
+// https://rust-lang.github.io/api-guidelines/future-proofing.html#c-sealed
+mod private {
+    pub trait Sealed {}
+
+    // Implement for those same types, but no others.
+    impl Sealed for char {}
 }

@@ -1,0 +1,9 @@
+[package]
+name = "is-vowel"
+version = "0.1.0"
+authors = ["Bart Massey <bart.massey@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+once_cell = "1.7.2"
+unicode-normalization = "0.1.17"

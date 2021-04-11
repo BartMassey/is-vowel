@@ -50,8 +50,8 @@ pub trait IsRomanceVowel: private::Sealed {
     #[allow(clippy::wrong_self_convention)]
     fn is_romance_vowel(self) -> bool;
 
-    /// Behave as [`is_romance_vowel`][is_romance_vowel], but also include the characters in
-    /// `extra_vowels` as vowels.
+    /// Behave as [`is_romance_vowel`][IsRomanceVowel::is_romance_vowel], but also include the
+    /// characters in `extra_vowels` as vowels.
     ///
     /// # Examples
     ///

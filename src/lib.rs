@@ -8,7 +8,7 @@
 //!
 //! Even for the Romance languages, the situation is a bit complicated. The basic Romance vowels
 //! are "a", "e", "i", "o", "u". However, for example:
-//! 
+//!
 //!   * Uppercase versions are also vowels.
 //!   * Accented versions are also vowels.
 //!   * "Sometimes 'y', sometimes 'w'." These letters are consonant in some situations, vowels
@@ -34,7 +34,7 @@ pub trait IsRomanceVowel: private::Sealed {
     /// KD](https://unicode.org/reports/tr15/#Norm_Forms) to remove accents.  It then considers
     /// the argument to be a vowel if the first codepoint in the decomposition of `self` is "a",
     /// "e", "i", "o", "u" or their uppercase equivalents.
-    /// 
+    ///
     /// The author believes that this produces a reasonable approximation of "vowelness"
     /// for Romance languages. Counterexamples are welcome.
     ///
@@ -64,8 +64,7 @@ pub trait IsRomanceVowel: private::Sealed {
 }
 
 /// "Base" set of vowels.
-static BASE_VOWELS: Lazy<HashSet<char>>
-    = Lazy::new(|| "aeiouAEIOU".chars().collect());
+static BASE_VOWELS: Lazy<HashSet<char>> = Lazy::new(|| "aeiouAEIOU".chars().collect());
 
 /// Given a Unicode codepoint `c`, decompose `c` according to Unicode Normalization Form NKD and
 /// return the first codepoint.

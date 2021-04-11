@@ -10,3 +10,10 @@ unicode-normalization = "0.1.17"
 
 [dev-dependencies]
 regex = "1.4.5"
+
+[features]
+# To maintain performance while keeping code "simple", the
+# pig-latin example forces you to choose whether to treat a
+# hyphenated word like "sugar-daddy" as one word or
+# two. Enable this feature to get two.
+split_hyphens = []

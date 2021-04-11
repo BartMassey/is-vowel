@@ -53,9 +53,10 @@ pub trait IsRomanceVowel {
     /// # Examples
     ///
     ///     # use is_vowel::IsRomanceVowel;
+    ///     # use std::collections::HashSet;
     ///     let extra_vowels: HashSet<char> = "yYwW".chars().collect();
     ///     for c in "yW".chars() {
-    ///         assert!(c.is_romance_vowel_including(extra_vowels));
+    ///         assert!(c.is_romance_vowel_including(&extra_vowels));
     ///     }
     fn is_romance_vowel_including(self, extra_vowels: &HashSet<char>) -> bool;
 }

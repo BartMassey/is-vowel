@@ -28,7 +28,7 @@ use once_cell::sync::Lazy;
 use unicode_normalization::UnicodeNormalization;
 
 pub trait IsRomanceVowel: private::Sealed {
-    /// Return `true` iff `self` appears to be a "vowel" in a Romance language.
+    /// Return `true` if `self` appears to be a "vowel" in a Romance language.
     ///
     /// This function first decomposes its argument according to [Unicode Normalization Form
     /// KD](https://unicode.org/reports/tr15/#Norm_Forms) to remove accents.  It then considers
@@ -76,7 +76,7 @@ fn decompose_starting(c: char) -> char {
     s.nfkd().next().unwrap()
 }
 
-/// Return `true` iff `c` is in `vowels` after transformation via `decompose_starting
+/// Return `true` if `c` is in `vowels` after transformation via `decompose_starting
 fn is_romance_vowel_with(c: char, vowels: &HashSet<char>) -> bool {
     let c = decompose_starting(c);
     vowels.contains(&c)
